@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const DetailPage: React.FC = () => {
+  const [value, setValue] = useState('');
   const headerItems = [
     { label: 'Exam', value: 'Exam Name' },
     { label: 'Team', value: 'Team Name' },
@@ -114,9 +117,8 @@ const DetailPage: React.FC = () => {
       {/* Exam Notes */}
       <div className="mt-4 bg-white p-4 shadow rounded">
         <h2 className="font-bold text-lg mb-4">Exam Notes</h2>
-        <div className="text-sm">
-          <p>Notes: 2024-02-26</p>
-          <p>Gastropub chillwave lumbersexual umami lyft. ...</p>
+        <div>
+          <ReactQuill theme="snow" value={value} onChange={setValue} />
         </div>
       </div>
     </div>
